@@ -1,4 +1,4 @@
-/* === Core Layout === */
+
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
@@ -6,26 +6,23 @@ body {
   color: #e0e0e0;
 }
 
-/* === Symbolic Card Container === */
 .card {
   border-radius: 12px;
   padding: 1.2rem;
   margin: 1rem;
   background: rgba(255, 255, 255, 0.05);
-  -webkit-backdrop-filter: blur(8px); /* Safari support */
   backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
 }
 
-/* === Hover Interactivity === */
 .card:hover {
   transform: scale(1.03);
   box-shadow: 0 0 18px rgba(255, 255, 255, 0.2);
 }
 
-/* === Elemental Themes === */
 .card[data-element="Air"]    { border-left: 4px solid #a8e6cf; }
 .card[data-element="Fire"]   { border-left: 4px solid #ff8b94; }
 .card[data-element="Water"]  { border-left: 4px solid #69b7ff; }
@@ -36,7 +33,6 @@ body {
 .card[data-element="Light"]  { border-left: 4px solid #fff176; }
 .card[data-element="Shadow"] { border-left: 4px solid #616161; }
 
-/* === Lore Text Styling === */
 .lore {
   font-style: italic;
   font-size: 0.95rem;
@@ -44,7 +40,6 @@ body {
   margin-top: 0.5rem;
 }
 
-/* === Communion Seeker Overlay === */
 #communion-seeker {
   position: fixed;
   bottom: 2rem;
@@ -63,7 +58,6 @@ body {
   animation: pulse 3s infinite;
 }
 
-/* === Pulse Animation === */
 @keyframes pulse {
   0%   { box-shadow: 0 0 0px rgba(255,255,255,0.2); }
   50%  { box-shadow: 0 0 12px rgba(255,255,255,0.4); }

@@ -1,31 +1,43 @@
 import json
-import os
+import os # noqa
 
-def load_triangle_meta(from_json=True):
-    path = "data/lore.json"
+def load_triangle_meta():
+    try:
+        with open("lore.json", "r", encoding="utf-8") as f:
+            meta = json.load(f)
+        return meta
+    except Exception as e:
+        print(f"⚠️ Failed to load lore.json: {e}. Falling back to default metadata.")
+        return {
+            "triangles": [],
+            "message": "Default metadata loaded due to error."
+        }
 
-    if from_json:
-        try:
-            if not os.path.exists(path):
-                raise FileNotFoundError
+# def load_triangle_meta(from_json=True):
+#     path = "data/lore.json"
 
-            with open(path, "r", encoding="utf-8") as f:
-                content = f.read()
-                if not content.strip():
-                    raise ValueError("Empty JSON file.")
-                meta = json.loads(content)
+#     if from_json:
+#         try:
+#             if not os.path.exists(path):
+#                 raise FileNotFoundError
 
-        except (FileNotFoundError, ValueError, json.JSONDecodeError) as e:
-            print(f"⚠️ Failed to load lore.json: {e}. Falling back to default metadata.")
-            meta = default_triangle_meta()
-    else:
-        meta = default_triangle_meta()
+#             with open(path, "r", encoding="utf-8") as f:
+#                 content = f.read()
+#                 if not content.strip():
+#                     raise ValueError("Empty JSON file.")
+#                 meta = json.loads(content)
 
-    # Add symbolic rotation for UI overlays
-    for i, item in enumerate(meta):
-        item["rotation"] = i * 40
+#         except (FileNotFoundError, ValueError, json.JSONDecodeError) as e:
+#             print(f"⚠️ Failed to load lore.json: {e}. Falling back to default metadata.")
+#             meta = default_triangle_meta()
+#     else:
+#         meta = default_triangle_meta()
 
-    return meta
+#     # Add symbolic rotation for UI overlays
+#     for i, item in enumerate(meta):
+#         item["rotation"] = i * 40
+
+#     return meta
 
 def default_triangle_meta():
     symbols = [

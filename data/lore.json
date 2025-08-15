@@ -1,71 +1,76 @@
-/* === Core Layout === */
-body {
-  margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(to bottom right, #0f0f0f, #1a1a1a);
-  color: #e0e0e0;
-}
-
-/* === Symbolic Card Container === */
-.card {
-  border-radius: 12px;
-  padding: 1.2rem;
-  margin: 1rem;
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px); /* Safari support */
-  box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
-}
-
-/* === Hover Interactivity === */
-.card:hover {
-  transform: scale(1.03);
-  box-shadow: 0 0 18px rgba(255, 255, 255, 0.2);
-}
-
-/* === Elemental Themes === */
-.card[data-element="Air"]    { border-left: 4px solid #a8e6cf; }
-.card[data-element="Fire"]   { border-left: 4px solid #ff8b94; }
-.card[data-element="Water"]  { border-left: 4px solid #69b7ff; }
-.card[data-element="Earth"]  { border-left: 4px solid #c3b091; }
-.card[data-element="Aether"] { border-left: 4px solid #d1c4e9; }
-.card[data-element="Metal"]  { border-left: 4px solid #b0bec5; }
-.card[data-element="Wood"]   { border-left: 4px solid #aed581; }
-.card[data-element="Light"]  { border-left: 4px solid #fff176; }
-.card[data-element="Shadow"] { border-left: 4px solid #616161; }
-
-/* === Lore Text Styling === */
-.lore {
-  font-style: italic;
-  font-size: 0.95rem;
-  color: #cccccc;
-  margin-top: 0.5rem;
-}
-
-/* === Communion Seeker Overlay === */
-#communion-seeker {
-  position: fixed;
-  bottom: 2rem;
-  right: 2rem;
-  background: radial-gradient(circle, #222, #000);
-  border: 2px solid #888;
-  border-radius: 50%;
-  width: 80px;
-  height: 80px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  font-size: 0.75rem;
-  text-align: center;
-  animation: pulse 3s infinite;
-}
-
-/* === Pulse Animation === */
-@keyframes pulse {
-  0%   { box-shadow: 0 0 0px rgba(255,255,255,0.2); }
-  50%  { box-shadow: 0 0 12px rgba(255,255,255,0.4); }
-  100% { box-shadow: 0 0 0px rgba(255,255,255,0.2); }
+{
+  "triangles": [
+    {
+      "id": 1,
+      "name": "Triangle of Air",
+      "element": "Air",
+      "mantra": "Vayu Namah",
+      "symbol": "🌬️",
+      "lore": "Breath is the bridge between thought and form. Air carries the whisper of intention."
+    },
+    {
+      "id": 2,
+      "name": "Triangle of Fire",
+      "element": "Fire",
+      "mantra": "Agni Namah",
+      "symbol": "🔥",
+      "lore": "Fire transforms. It consumes illusion and reveals the radiant core of being."
+    },
+    {
+      "id": 3,
+      "name": "Triangle of Water",
+      "element": "Water",
+      "mantra": "Jala Namah",
+      "symbol": "💧",
+      "lore": "Water remembers. It flows through memory, emotion, and the sacred pulse of life."
+    },
+    {
+      "id": 4,
+      "name": "Triangle of Earth",
+      "element": "Earth",
+      "mantra": "Prithvi Namah",
+      "symbol": "🌍",
+      "lore": "Earth holds. It anchors the soul in form, offering stability and sacred geometry."
+    },
+    {
+      "id": 5,
+      "name": "Triangle of Aether",
+      "element": "Aether",
+      "mantra": "Akasha Namah",
+      "symbol": "✨",
+      "lore": "Aether is the unseen field. It binds all elements in communion and silence."
+    },
+    {
+      "id": 6,
+      "name": "Triangle of Metal",
+      "element": "Metal",
+      "mantra": "Loha Namah",
+      "symbol": "⚙️",
+      "lore": "Metal reflects. It is the mirror of karma, forged by discipline and clarity."
+    },
+    {
+      "id": 7,
+      "name": "Triangle of Wood",
+      "element": "Wood",
+      "mantra": "Vriksha Namah",
+      "symbol": "🌳",
+      "lore": "Wood grows. It spirals upward, connecting root to sky in sacred expansion."
+    },
+    {
+      "id": 8,
+      "name": "Triangle of Light",
+      "element": "Light",
+      "mantra": "Jyoti Namah",
+      "symbol": "🌟",
+      "lore": "Light reveals. It is the language of truth, illuminating the path of the seeker."
+    },
+    {
+      "id": 9,
+      "name": "Triangle of Shadow",
+      "element": "Shadow",
+      "mantra": "Chhaya Namah",
+      "symbol": "🌑",
+      "lore": "Shadow conceals. It is the womb of transformation, where the unseen prepares to emerge."
+    }
+  ]
 }
