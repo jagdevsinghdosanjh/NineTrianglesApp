@@ -1,18 +1,30 @@
 import json
+import os
 
 def load_triangle_meta(from_json=True):
+    path = "data/lore.json"
+
     if from_json:
         try:
-            with open("data/lore.json", "r") as f:
-                meta = json.load(f)
-        except FileNotFoundError:
-            print("⚠️ lore.json not found. Falling back to default metadata.")
+            if not os.path.exists(path):
+                raise FileNotFoundError
+
+            with open(path, "r", encoding="utf-8") as f:
+                content = f.read()
+                if not content.strip():
+                    raise ValueError("Empty JSON file.")
+                meta = json.loads(content)
+
+        except (FileNotFoundError, ValueError, json.JSONDecodeError) as e:
+            print(f"⚠️ Failed to load lore.json: {e}. Falling back to default metadata.")
             meta = default_triangle_meta()
     else:
         meta = default_triangle_meta()
 
+    # Add symbolic rotation for UI overlays
     for i, item in enumerate(meta):
         item["rotation"] = i * 40
+
     return meta
 
 def default_triangle_meta():
@@ -27,6 +39,7 @@ def default_triangle_meta():
         ("Truth", "Light", "Illumination, revelation, and integrity."),
         ("Mystery", "Shadow", "The unknown, the hidden, the fertile void.")
     ]
+
     return [
         {
             "id": i,

@@ -1,113 +1,71 @@
-/* Elemental Triangle Colors + Glows */
-.triangle-air {
-    fill: #aee3f5;
-}
-.triangle-air:hover {
-    filter: drop-shadow(0 0 6px #aee3f5);
-}
-
-.triangle-fire {
-    fill: #ff6b6b;
-}
-.triangle-fire:hover {
-    filter: drop-shadow(0 0 6px #ff6b6b);
+/* === Core Layout === */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to bottom right, #0f0f0f, #1a1a1a);
+  color: #e0e0e0;
 }
 
-.triangle-water {
-    fill: #6bc1ff;
-}
-.triangle-water:hover {
-    filter: drop-shadow(0 0 6px #6bc1ff);
-}
-
-.triangle-earth {
-    fill: #bfa76f;
-}
-.triangle-earth:hover {
-    filter: drop-shadow(0 0 6px #bfa76f);
-}
-
-.triangle-aether {
-    fill: #d6d6f5;
-}
-.triangle-aether:hover {
-    filter: drop-shadow(0 0 6px #d6d6f5);
+/* === Symbolic Card Container === */
+.card {
+  border-radius: 12px;
+  padding: 1.2rem;
+  margin: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px); /* Safari support */
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
 }
 
-.triangle-metal {
-    fill: #c0c0c0;
-}
-.triangle-metal:hover {
-    filter: drop-shadow(0 0 6px #c0c0c0);
-}
-
-.triangle-wood {
-    fill: #88c999;
-}
-.triangle-wood:hover {
-    filter: drop-shadow(0 0 6px #88c999);
+/* === Hover Interactivity === */
+.card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 18px rgba(255, 255, 255, 0.2);
 }
 
-.triangle-light {
-    fill: #fffacd;
-}
-.triangle-light:hover {
-    filter: drop-shadow(0 0 6px #fffacd);
-}
+/* === Elemental Themes === */
+.card[data-element="Air"]    { border-left: 4px solid #a8e6cf; }
+.card[data-element="Fire"]   { border-left: 4px solid #ff8b94; }
+.card[data-element="Water"]  { border-left: 4px solid #69b7ff; }
+.card[data-element="Earth"]  { border-left: 4px solid #c3b091; }
+.card[data-element="Aether"] { border-left: 4px solid #d1c4e9; }
+.card[data-element="Metal"]  { border-left: 4px solid #b0bec5; }
+.card[data-element="Wood"]   { border-left: 4px solid #aed581; }
+.card[data-element="Light"]  { border-left: 4px solid #fff176; }
+.card[data-element="Shadow"] { border-left: 4px solid #616161; }
 
-.triangle-shadow {
-    fill: #555555;
-}
-.triangle-shadow:hover {
-    filter: drop-shadow(0 0 6px #555555);
-}
-
-/* Symbolic Card Styling */
-.symbolic-card {
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid #ccc;
-    padding: 1rem;
-    margin: 1rem 0;
-    border-radius: 8px;
-
-    /* Safari first, then standard */
-    -webkit-backdrop-filter: blur(5px);
-    backdrop-filter: blur(5px);
-
-    /* Fallback for unsupported browsers */
-    background-color: rgba(255, 255, 255, 0.2);
-    color: #eee;
-
-    /* Optional enhancement: subtle glow */
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
-    transition: box-shadow 0.3s ease;
-}
-.symbolic-card:hover {
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+/* === Lore Text Styling === */
+.lore {
+  font-style: italic;
+  font-size: 0.95rem;
+  color: #cccccc;
+  margin-top: 0.5rem;
 }
 
-.symbolic-card h3 {
-    margin-bottom: 0.5rem;
-    font-size: 1.2rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+/* === Communion Seeker Overlay === */
+#communion-seeker {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background: radial-gradient(circle, #222, #000);
+  border: 2px solid #888;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 0.75rem;
+  text-align: center;
+  animation: pulse 3s infinite;
 }
 
-.symbolic-card p {
-    font-size: 0.95rem;
-    font-style: italic;
-    line-height: 1.4;
-}
-
-/* Triangle Interactivity */
-polygon {
-    transition: transform 0.3s ease, opacity 0.3s ease;
-    cursor: pointer;
-}
-
-polygon:hover {
-    transform: scale(1.1);
-    opacity: 0.95;
-    stroke: white;
-    stroke-width: 2;
+/* === Pulse Animation === */
+@keyframes pulse {
+  0%   { box-shadow: 0 0 0px rgba(255,255,255,0.2); }
+  50%  { box-shadow: 0 0 12px rgba(255,255,255,0.4); }
+  100% { box-shadow: 0 0 0px rgba(255,255,255,0.2); }
 }
