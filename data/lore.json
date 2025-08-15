@@ -1,0 +1,56 @@
+[
+  {
+    "id": 0,
+    "symbol": "Wisdom",
+    "element": "Air",
+    "lore": "Clarity of thought and the breath of insight."
+  },
+  {
+    "id": 1,
+    "symbol": "Courage",
+    "element": "Fire",
+    "lore": "The spark that ignites transformation."
+  },
+  {
+    "id": 2,
+    "symbol": "Harmony",
+    "element": "Water",
+    "lore": "Flowing unity and emotional resonance."
+  },
+  {
+    "id": 3,
+    "symbol": "Structure",
+    "element": "Earth",
+    "lore": "Foundation, form, and sacred geometry."
+  },
+  {
+    "id": 4,
+    "symbol": "Vision",
+    "element": "Aether",
+    "lore": "The unseen pattern behind all things."
+  },
+  {
+    "id": 5,
+    "symbol": "Balance",
+    "element": "Metal",
+    "lore": "Precision, reflection, and inner alignment."
+  },
+  {
+    "id": 6,
+    "symbol": "Flow",
+    "element": "Wood",
+    "lore": "Growth, adaptability, and creative expansion."
+  },
+  {
+    "id": 7,
+    "symbol": "Truth",
+    "element": "Light",
+    "lore": "Illumination, revelation, and integrity."
+  },
+  {
+    "id": 8,
+    "symbol": "Mystery",
+    "element": "Shadow",
+    "lore": "The unknown, the hidden, the fertile void."
+  }
+]

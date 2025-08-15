@@ -1,0 +1,54 @@
+.triangle-air { fill: #aee3f5; }
+.triangle-fire { fill: #ff6b6b; }
+.triangle-water { fill: #6bc1ff; }
+.triangle-earth { fill: #bfa76f; }
+.triangle-aether { fill: #d6d6f5; }
+.triangle-metal { fill: #c0c0c0; }
+.triangle-wood { fill: #88c999; }
+.triangle-light { fill: #fffacd; }
+.triangle-shadow { fill: #555555; }
+
+.symbolic-card {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid #ccc;
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: 8px;
+
+    /* Backdrop blur for supported browsers */
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px); /* Safari support */
+
+    /* Fallback for unsupported browsers */
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #eee;
+}
+
+/* .symbolic-card {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid #ccc;
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: 8px;
+    backdrop-filter: blur(5px);
+    color: #eee;
+} */
+.symbolic-card h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+}
+.symbolic-card p {
+    font-size: 0.95rem;
+    font-style: italic;
+}
+
+polygon {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    cursor: pointer;
+}
+polygon:hover {
+    transform: scale(1.1);
+    opacity: 0.9;
+    stroke: white;
+    stroke-width: 2;
+}
