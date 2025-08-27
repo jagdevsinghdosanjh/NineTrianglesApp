@@ -2,18 +2,20 @@ import json
 import os
 
 def load_triangle_meta():
-    path = "lore.json"
+    path = os.path.join("data", "lore.json")
     try:
-        if not os.path.exists(path):
-            raise FileNotFoundError("lore.json not found.")
-
         with open(path, "r", encoding="utf-8") as f:
             content = f.read()
             if not content.strip():
                 raise ValueError("Empty JSON file.")
-            meta = json.loads(content)
+            raw = json.loads(content)
 
-        # Ensure each triangle has a rotation angle
+        # Extract triangle list
+        meta = raw.get("triangles", [])
+        if not isinstance(meta, list):
+            raise ValueError("Expected 'triangles' to be a list.")
+
+        # Add rotation
         for i, item in enumerate(meta):
             item["rotation"] = i * 40
 
@@ -22,7 +24,6 @@ def load_triangle_meta():
     except (FileNotFoundError, ValueError, json.JSONDecodeError) as e:
         print(f"⚠️ Failed to load lore.json: {e}. Falling back to default metadata.")
         return default_triangle_meta()
-
 def default_triangle_meta():
     symbols = [
         ("Wisdom", "Air", "Clarity of thought and the breath of insight."),
