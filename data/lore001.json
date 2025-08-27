@@ -1,0 +1,20 @@
+{
+  "triangles": [
+    {
+      "id": 1,
+      "name": "Wisdom",
+      "element": "Air",
+      "mantra": "Vayu Namah",
+      "symbol": "🌬️",
+      "lore": "Breath is the bridge between thought and form. Air carries the whisper of intention."
+    },
+    {
+      "id": 2,
+      "name": "Courage",
+      "element": "Fire",
+      "mantra": "Agni Namah",
+      "symbol": "🔥",
+      "lore": "Fire transforms. It consumes illusion and reveals the radiant core of being."
+    }
+  ]
+}

@@ -1,31 +1,56 @@
-document.querySelectorAll("polygon").forEach(poly => {
-    poly.addEventListener("click", () => {
-        const symbol = poly.getAttribute("title");
-        const card = document.getElementById("symbolic-card");
-        card.innerHTML = `<h3>${symbol}</h3><p>${getLore(symbol)}</p>`;
-    });
-});
+window.addEventListener("load", () => {
+  setTimeout(() => {
+    const loreContainer = document.getElementById("symbolic-card");
+    const triangles = document.querySelectorAll(".triangle");
 
-document.addEventListener("DOMContentLoaded", function() {
-    if (!CSS.supports("backdrop-filter", "blur(5px)")) {
-        document.querySelectorAll(".symbolic-card").forEach(card => {
-            card.style.backgroundColor = "rgba(255,255,255,0.2)";
-        });
+    if (!loreContainer || triangles.length === 0) {
+      console.warn("⚠️ Lore container or triangles not found.");
+      return;
     }
+
+    triangles.forEach(tri => {
+      tri.addEventListener("click", () => {
+        const name = tri.getAttribute("data-name") || "Unknown";
+        const element = tri.getAttribute("data-element") || "Unknown";
+        const symbol = tri.getAttribute("data-symbol") || "";
+        const lore = tri.getAttribute("data-lore") || "Lore not available.";
+
+        loreContainer.innerHTML = `
+          <h3>${symbol} (${element})</h3>
+          <h4>${name}</h4>
+          <p>${lore}</p>
+        `;
+      });
+    });
+  }, 500);
 });
 
+// function attachTriangleListeners() {
+//   const loreContainer = document.getElementById("symbolic-card");
+//   const triangles = document.querySelectorAll(".triangle");
 
-function getLore(symbol) {
-    const loreMap = {
-        "Wisdom": "Clarity of thought and the breath of insight.",
-        "Courage": "The spark that ignites transformation.",
-        "Harmony": "Flowing unity and emotional resonance.",
-        "Structure": "Foundation, form, and sacred geometry.",
-        "Vision": "The unseen pattern behind all things.",
-        "Balance": "Precision, reflection, and inner alignment.",
-        "Flow": "Growth, adaptability, and creative expansion.",
-        "Truth": "Illumination, revelation, and integrity.",
-        "Mystery": "The unknown, the hidden, the fertile void."
-    };
-    return loreMap[symbol] || "Unknown symbol.";
-}
+//   if (!loreContainer || triangles.length === 0) {
+//     console.warn("⚠️ Lore container or triangles not found.");
+//     return;
+//   }
+
+//   triangles.forEach(tri => {
+//     tri.addEventListener("click", () => {
+//       const name = tri.getAttribute("data-name") || "Unknown";
+//       const element = tri.getAttribute("data-element") || "Unknown";
+//       const symbol = tri.getAttribute("data-symbol") || "";
+//       const lore = tri.getAttribute("data-lore") || "Lore not available.";
+
+//       loreContainer.innerHTML = `
+//         <h3>${symbol} (${element})</h3>
+//         <h4>${name}</h4>
+//         <p>${lore}</p>
+//       `;
+//     });
+//   });
+// }
+
+// // Delay execution to ensure DOM is ready
+// window.addEventListener("load", () => {
+//   setTimeout(attachTriangleListeners, 500);
+// });
