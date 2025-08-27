@@ -2,6 +2,12 @@ import streamlit as st
 from triangle_utils import isosceles_triangle, svg_triangle, render_symbolic_card
 from metadata import load_triangle_meta
 
+
+def local_css(file_name):
+    with open(file_name, encoding="utf-8") as f:
+        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+        local_css("assets/style.css")
+
 # Load triangle metadata
 TRIANGLE_META = load_triangle_meta()
 
@@ -9,14 +15,11 @@ TRIANGLE_META = load_triangle_meta()
 st.set_page_config(layout="wide")
 
 # Inject CSS
-def local_css(file_name):
-    try:
-        with open(file_name, encoding="utf-8") as f:
-            st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
-    except FileNotFoundError:
-        st.error(f"Missing {file_name}")
-
-local_css("assets/style.css")
+try:
+    with open("assets/style.css") as f:
+        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+except FileNotFoundError:
+    st.error("Missing style.css in assets folder.")
 
 # Inject JS
 try:
@@ -48,6 +51,7 @@ elif view == "Symbolic":
     for meta in TRIANGLE_META:
         st.markdown(render_symbolic_card(meta), unsafe_allow_html=True)
 
+    # Add interactive card container
     st.markdown("""
     <div id="symbolic-card" class="symbolic-card">
         <h3>Click a triangle to reveal its lore</h3>
