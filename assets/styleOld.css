@@ -12,19 +12,20 @@ body {
   padding: 1.2rem;
   margin: 1rem;
   background: rgba(255, 255, 255, 0.05);
-  -webkit-backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px); /* Safari support */
   backdrop-filter: blur(8px);
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
 }
 
+/* === Hover Interactivity === */
 .card:hover {
   transform: scale(1.03);
   box-shadow: 0 0 18px rgba(255, 255, 255, 0.2);
 }
 
-/* === Elemental Themes for Cards === */
+/* === Elemental Themes === */
 .card[data-element="Air"]    { border-left: 4px solid #a8e6cf; }
 .card[data-element="Fire"]   { border-left: 4px solid #ff8b94; }
 .card[data-element="Water"]  { border-left: 4px solid #69b7ff; }
@@ -68,13 +69,6 @@ body {
   50%  { box-shadow: 0 0 12px rgba(255,255,255,0.4); }
   100% { box-shadow: 0 0 0px rgba(255,255,255,0.2); }
 }
-
-/* === Elemental Triangle Styling === */
-.triangle-group polygon[data-element="Air"] {
-  stroke: #a8e6cf;
-  fill: rgba(168, 230, 207, 0.2);
-}
-
 .triangle-group polygon[data-element="Fire"] {
   stroke: red;
   fill: rgba(255, 0, 0, 0.2);
@@ -85,47 +79,4 @@ body {
   fill: rgba(0, 0, 255, 0.2);
 }
 
-.triangle-group polygon[data-element="Earth"] {
-  stroke: #c3b091;
-  fill: rgba(195, 176, 145, 0.2);
-}
-
-.triangle-group polygon[data-element="Aether"] {
-  stroke: #d1c4e9;
-  fill: rgba(209, 196, 233, 0.2);
-}
-
-.triangle-group polygon[data-element="Metal"] {
-  stroke: #b0bec5;
-  fill: rgba(176, 190, 197, 0.2);
-}
-
-.triangle-group polygon[data-element="Wood"] {
-  stroke: #aed581;
-  fill: rgba(174, 213, 129, 0.2);
-}
-
-.triangle-group polygon[data-element="Light"] {
-  stroke: #fff176;
-  fill: rgba(255, 241, 118, 0.2);
-}
-
-.triangle-group polygon[data-element="Shadow"] {
-  stroke: #616161;
-  fill: rgba(97, 97, 97, 0.2);
-}
-
-/* === Triangle Hover Glow === */
-.triangle-group polygon:hover {
-  stroke-width: 2;
-  filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.3));
-  cursor: pointer;
-}
-
-/* === Symbol Text Styling === */
-.triangle-group text {
-  font-family: 'Segoe UI', sans-serif;
-  fill: #e0e0e0;
-  font-size: 14px;
-  pointer-events: none;
-}
+/* Add more for each element */
