@@ -129,3 +129,20 @@ body {
   font-size: 14px;
   pointer-events: none;
 }
+.nested-triangle {
+  stroke: gold;
+  stroke-width: 1;
+  fill: rgba(255, 215, 0, 0.1);
+}
+.triangle-group polygon:hover {
+  stroke-width: 2;
+  filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.3));
+  cursor: pointer;
+}
+
+.triangle-group text {
+  font-family: 'Segoe UI', sans-serif;
+  fill: #e0e0e0;
+  font-size: 14px;
+  pointer-events: none;
+}

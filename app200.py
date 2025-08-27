@@ -77,10 +77,17 @@ if view == "Symbolic":
             <p>{selected_meta['lore']}</p>
         </div>
         """, unsafe_allow_html=True)
-
 def svg_triangle(points, symbol, element, name, lore):
     point_str = " ".join([f"{x},{y}" for x, y in points])
     cx, cy = points[2]  # tip of triangle
+
+    # Calculate nested triangle (scaled down)
+    def scale_point(p, factor=0.7, origin=(cx, cy)):
+        ox, oy = origin
+        return (ox + (p[0] - ox) * factor, oy + (p[1] - oy) * factor)
+
+    nested_points = [scale_point(p) for p in points]
+    nested_str = " ".join([f"{x},{y}" for x, y in nested_points])
 
     return f"""
     <g class="triangle-group">
@@ -89,40 +96,16 @@ def svg_triangle(points, symbol, element, name, lore):
         data-element="{element}"
         data-name="{name}"
         data-lore="{lore.replace('"', '&quot;')}" />
+      <polygon points="{nested_str}" class="nested-triangle" />
       <circle cx="{cx}" cy="{cy}" r="10" fill="none" stroke="gold" stroke-width="2" />
       <text x="{cx}" y="{cy + 4}" text-anchor="middle">{symbol}</text>
     </g>
     """
-        
-# def svg_triangle(points, symbol, element, name, lore):
-#     point_str = " ".join([f"{x},{y}" for x, y in points])
-#     cx, cy = points[2]  # tip of triangle
-
-#     # Calculate nested triangle (scaled down)
-#     def scale_point(p, factor=0.7, origin=(cx, cy)):
-#         ox, oy = origin
-#         return (ox + (p[0] - ox) * factor, oy + (p[1] - oy) * factor)
-
-#     nested_points = [scale_point(p) for p in points]
-#     nested_str = " ".join([f"{x},{y}" for x, y in nested_points])
-
-#     return f"""
-#     <g class="triangle-group">
-#       <polygon points="{point_str}" class="triangle"
-#         data-symbol="{symbol}"
-#         data-element="{element}"
-#         data-name="{name}"
-#         data-lore="{lore.replace('"', '&quot;')}" />
-#       <polygon points="{nested_str}" class="nested-triangle" />
-#       <circle cx="{cx}" cy="{cy}" r="10" fill="none" stroke="gold" stroke-width="2" />
-#       <text x="{cx}" y="{cy + 4}" text-anchor="middle">{symbol}</text>
-#     </g>
-#     """
-# st.markdown("""
-# <svg width="600" height="600">
-#   <polygon points="100,100 200,100 150,50" stroke="white" fill="gray" />
-# </svg>
-# """, unsafe_allow_html=True)
+st.markdown("""
+<svg width="600" height="600">
+  <polygon points="100,100 200,100 150,50" stroke="white" fill="gray" />
+</svg>
+""", unsafe_allow_html=True)
 
 
 # def svg_triangle(points, symbol, element, name, lore):
