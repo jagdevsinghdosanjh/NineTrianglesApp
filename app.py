@@ -77,3 +77,19 @@ if view == "Symbolic":
             <p>{selected_meta['lore']}</p>
         </div>
         """, unsafe_allow_html=True)
+
+def svg_triangle(points, symbol, element, name, lore):
+    point_str = " ".join([f"{x},{y}" for x, y in points])
+    cx, cy = points[2]  # tip of triangle
+
+    return f"""
+    <g class="triangle-group">
+      <polygon points="{point_str}" class="triangle"
+        data-symbol="{symbol}"
+        data-element="{element}"
+        data-name="{name}"
+        data-lore="{lore.replace('"', '&quot;')}" />
+      <circle cx="{cx}" cy="{cy}" r="10" fill="none" stroke="gold" stroke-width="2" />
+      <text x="{cx}" y="{cy + 4}" text-anchor="middle" font-size="12">{symbol}</text>
+    </g>
+    """
