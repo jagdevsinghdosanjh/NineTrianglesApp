@@ -1,24 +1,24 @@
 import streamlit as st
-from triangle_utils import isosceles_triangle
+from triangle_utils import isosceles_triangle,svg_triangle
 from metadata import load_triangle_meta
 from streamlit_option_menu import option_menu
 
 # 🔺 Sacred Geometry SVG Generator
-def svg_triangle(points, symbol, element, name, lore):
-    point_str = " ".join([f"{x},{y}" for x, y in points])
-    cx, cy = points[2]  # tip of triangle
+# def svg_triangle(points, symbol, element, name, lore):
+#     point_str = " ".join([f"{x},{y}" for x, y in points])
+#     cx, cy = points[2]  # tip of triangle
 
-    return f"""
-    <g class="triangle-group">
-      <polygon points="{point_str}" class="triangle"
-        data-symbol="{symbol}"
-        data-element="{element}"
-        data-name="{name}"
-        data-lore="{lore.replace('"', '&quot;')}" />
-      <circle cx="{cx}" cy="{cy}" r="10" fill="none" stroke="gold" stroke-width="2" />
-      <text x="{cx}" y="{cy + 4}" text-anchor="middle">{symbol}</text>
-    </g>
-    """
+#     return f"""
+#     <g class="triangle-group">
+#       <polygon points="{point_str}" class="triangle"
+#         data-symbol="{symbol}"
+#         data-element="{element}"
+#         data-name="{name}"
+#         data-lore="{lore.replace('"', '&quot;')}" />
+#       <circle cx="{cx}" cy="{cy}" r="10" fill="none" stroke="gold" stroke-width="2" />
+#       <text x="{cx}" y="{cy + 4}" text-anchor="middle">{symbol}</text>
+#     </g>
+#     """
 
 # 🔧 Page config
 st.set_page_config(layout="wide")
@@ -94,3 +94,9 @@ if view == "Symbolic":
             <p>{selected_meta['lore']}</p>
         </div>
         """, unsafe_allow_html=True)
+
+st.markdown("""
+<svg width="1200" height="1200">
+  <polygon points="100,100 200,100 150,50" stroke="white" fill="red" />
+</svg>
+""", unsafe_allow_html=True)

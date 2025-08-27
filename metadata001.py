@@ -1,42 +1,29 @@
 import json
 import os
 
-ROTATION_STEP = 40  # Easily tweakable rotation increment
-
 
 def load_triangle_meta():
     path = os.path.join("data", "lore.json")
-    abs_path = os.path.abspath(path)
-    print(f"🔍 Looking for lore.json at: {abs_path}")
-
     try:
         with open(path, "r", encoding="utf-8") as f:
             content = f.read()
             if not content.strip():
                 raise ValueError("Empty JSON file.")
-
             raw = json.loads(content)
 
         meta = raw.get("triangles", [])
         if not isinstance(meta, list):
             raise ValueError("Expected 'triangles' to be a list.")
 
+        # Inject rotation if missing
         for i, item in enumerate(meta):
-            if not isinstance(item, dict):
-                raise ValueError(f"Item at index {i} is not a dictionary.")
-            item.setdefault("rotation", i * ROTATION_STEP)
+            item.setdefault("rotation", i * 40)
 
-        print(f"✅ Successfully loaded {len(meta)} triangle entries.")
         return meta
 
-    except FileNotFoundError:
-        print(f"⚠️ File not found: {abs_path}. Falling back to default metadata.")
-    except json.JSONDecodeError as e:
-        print(f"⚠️ JSON decoding error in {abs_path}: {e}. Using default metadata.")
-    except ValueError as e:
-        print(f"⚠️ Value error in {abs_path}: {e}. Using default metadata.")
-
-    return default_triangle_meta()
+    except (FileNotFoundError, ValueError, json.JSONDecodeError) as e:
+        print(f"⚠️ Failed to load lore.json: {e}. Falling back to default metadata.")
+        return default_triangle_meta()
 
 
 def default_triangle_meta():
@@ -52,14 +39,13 @@ def default_triangle_meta():
         ("Mystery", "Shadow", "The unknown, the hidden, the fertile void.")
     ]
 
-    print(f"🔧 Generating default metadata for {len(symbols)} triangles.")
     return [
         {
             "id": i,
             "symbol": sym,
             "element": elem,
             "lore": lore,
-            "rotation": i * ROTATION_STEP
+            "rotation": i * 40
         }
         for i, (sym, elem, lore) in enumerate(symbols)
     ]

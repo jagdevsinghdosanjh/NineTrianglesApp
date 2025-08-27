@@ -26,6 +26,30 @@ def svg_triangle(points, symbol, element, name, lore):
         data-lore="{lore.replace('"', '&quot;')}" />
     </g>
     """
+
+
+# def svg_triangle(points, symbol, element, name, lore):
+#     point_str = " ".join([f"{x},{y}" for x, y in points])
+#     return f"""
+#     <polygon points="{point_str}" class="triangle"
+#         data-symbol="{symbol}"
+#         data-element="{element}"
+#         data-name="{name}"
+#         data-lore="{lore.replace('"', '&quot;')}" />
+#     """
+
+
+# def svg_triangle(points, symbol, element, name):
+#     point_str = " ".join([f"{x},{y}" for x, y in points])
+#     return f"""
+#     <polygon points="{point_str}" class="triangle" data-symbol="{symbol}" data-element="{element}" data-name="{name}" />
+#     """
+
+# def svg_triangle(points, symbol, element, opacity=0.6):
+#     p_str = " ".join([f"{x},{y}" for x, y in points])
+#     css_class = f"triangle-{element.lower()}"
+#     return f'<polygon points="{p_str}" class="{css_class}" opacity="{opacity}" title="{symbol}" />'
+
 def render_symbolic_card(meta):
     return f"""
     <div class="symbolic-card">
