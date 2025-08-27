@@ -1,5 +1,6 @@
 import streamlit as st
-from triangle_utils import isosceles_triangle, svg_triangle
+from triangle_utils import isosceles_triangle
+#from triangle_utils import isosceles_triangle, svg_triangle
 from metadata import load_triangle_meta
 from streamlit_option_menu import option_menu
 
