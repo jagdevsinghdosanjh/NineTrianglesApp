@@ -1,0 +1,85 @@
+{
+  "triangles": [
+    {
+      "id": 1,
+      "name": "Triangle of Air",
+      "element": "Air",
+      "mantra": "Vayu Namah",
+      "symbol": "🌬️",
+      "lore": "Breath is the bridge between thought and form. Air carries the whisper of intention.",
+      "rotation": 0
+    },
+    {
+      "id": 2,
+      "name": "Triangle of Fire",
+      "element": "Fire",
+      "mantra": "Agni Namah",
+      "symbol": "🔥",
+      "lore": "Fire transforms. It consumes illusion and reveals the radiant core of being.",
+      "rotation": 40
+    },
+    {
+      "id": 3,
+      "name": "Triangle of Water",
+      "element": "Water",
+      "mantra": "Jala Namah",
+      "symbol": "💧",
+      "lore": "Water remembers. It flows through memory, emotion, and the sacred pulse of life.",
+      "rotation": 80
+    },
+    {
+      "id": 4,
+      "name": "Triangle of Earth",
+      "element": "Earth",
+      "mantra": "Prithvi Namah",
+      "symbol": "🌍",
+      "lore": "Earth holds. It anchors the soul in form, offering stability and sacred geometry.",
+      "rotation": 120
+    },
+    {
+      "id": 5,
+      "name": "Triangle of Aether",
+      "element": "Aether",
+      "mantra": "Akasha Namah",
+      "symbol": "✨",
+      "lore": "Aether is the unseen field. It binds all elements in communion and silence.",
+      "rotation": 160
+    },
+    {
+      "id": 6,
+      "name": "Triangle of Metal",
+      "element": "Metal",
+      "mantra": "Loha Namah",
+      "symbol": "⚙️",
+      "lore": "Metal reflects. It is the mirror of karma, forged by discipline and clarity.",
+      "rotation": 200
+    },
+    {
+      "id": 7,
+      "name": "Triangle of Wood",
+      "element": "Wood",
+      "mantra": "Vriksha Namah",
+      "symbol": "🌳",
+      "lore": "Wood grows. It spirals upward, connecting root to sky in sacred expansion.",
+      "rotation": 240
+    },
+    {
+      "id": 8,
+      "name": "Triangle of Light",
+      "element": "Light",
+      "mantra": "Jyoti Namah",
+      "symbol": "🌟",
+      "lore": "Light reveals. It is the language of truth, illuminating the path of the seeker.",
+      "rotation": 280
+    },
+    {
+      "id": 9,
+      "name": "Triangle of Shadow",
+      "element": "Shadow",
+      "mantra": "Chhaya Namah",
+      "symbol": "🌑",
+      "lore": "Shadow conceals. It is the womb of transformation, where the unseen prepares to emerge.",
+      "rotation": 320
+    }
+  ]
+}

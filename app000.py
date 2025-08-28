@@ -4,6 +4,23 @@ from triangle_utils import isosceles_triangle,svg_triangle
 from metadata import load_triangle_meta
 from streamlit_option_menu import option_menu
 
+# 🔺 Sacred Geometry SVG Generator
+# def svg_triangle(points, symbol, element, name, lore):
+#     point_str = " ".join([f"{x},{y}" for x, y in points])
+#     cx, cy = points[2]  # tip of triangle
+
+#     return f"""
+#     <g class="triangle-group">
+#       <polygon points="{point_str}" class="triangle"
+#         data-symbol="{symbol}"
+#         data-element="{element}"
+#         data-name="{name}"
+#         data-lore="{lore.replace('"', '&quot;')}" />
+#       <circle cx="{cx}" cy="{cy}" r="10" fill="none" stroke="gold" stroke-width="2" />
+#       <text x="{cx}" y="{cy + 4}" text-anchor="middle">{symbol}</text>
+#     </g>
+#     """
+
 # 🔧 Page config
 st.set_page_config(layout="wide")
 
@@ -38,46 +55,9 @@ filtered_meta = (
 if not filtered_meta:
     st.warning(f"No triangles found for {selected_element} realm.")
 
-# 🧭 View Selector Function
-def render_view_selector():
-    view = st.radio(
-        "🧭 Choose a view mode:",
-        ["Disintegrated", "Integrated", "Symbolic"],
-        key="view_selector"
-    )
-
-    if view == "Disintegrated":
-        st.write("🔹 Showing each triangle separately...")
-        render_disintegrated_view()
-
-    elif view == "Integrated":
-        st.write("🔸 Showing the full mandala...")
-        render_integrated_view()
-
-    elif view == "Symbolic":
-        st.write("🔺 Showing symbolic overlays and lore...")
-        render_symbolic_view()
-
-
-# 🧩 Individual rendering functions
-def render_disintegrated_view():
-    # Add logic to render triangles individually
-    st.write("Rendering disintegrated triangles...")
-
-def render_integrated_view():
-    # Add logic to render full Yantra
-    st.write("Rendering integrated mandala...")
-
-def render_symbolic_view():
-    # Add logic for symbolic overlays, labels, meanings
-    st.write("Rendering symbolic elements and lore...")
-
 # 🧭 View selector
-#view = st.radio("Choose view", ["Disintegrated", "Integrated", "Symbolic"], key="view_selector")
-  
-# 🏁 Call the function in your main app
-view=render_view_selector()
-       
+view = st.radio("Choose view", ["Disintegrated", "Integrated", "Symbolic"], key="view_selector")
+
 # 🔺 Triangle rendering
 svg_elements = []
 for meta in filtered_meta:
@@ -91,6 +71,20 @@ for meta in filtered_meta:
         lore=meta["lore"]
     )
     svg_elements.append(triangle_svg)
+
+# def load_lore(path="data/lore.json"):
+#     try:
+#         with open(path, encoding="utf-8") as f:
+#             data = json.load(f)
+#             print("Lore GOT loaded successfully.")
+#             return data
+#     except Exception as e:
+#         print(f"Error loading lore: {e}")
+#         return None
+
+
+# lore = load_lore()
+# print(lore["triangles"][0]["symbol"])  # Should print 🌬️
 
 # 🖼️ Render SVG
 st.markdown(f"""
